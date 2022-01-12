@@ -1,20 +1,24 @@
-<!DOCTYPE html>
 <html>
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-    <body style="margin : 0px; overflow: hidden;">
-        <a-scene embedded arjs>
-            <a-assets>
-                <img id="card" src="Assets\motiontest-0-Enhanced-Animated.gif" />
-            </a-assets>
-        <a-marker type="pattern" preset="custom" url="pattern-qr.patt">
-            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-            <a-entity mindar-image-target="targetIndex: 0" geometry="primitive:plane;width:15;height:15;" material="shader:gif;src:url(Assets\motiontest-0-Enhanced-Animated.gif);"></a-entity>
-        </a-marker>
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+</head>
+
+  <body>
+    <a-scene mindar-image="imageTargetSrc: targetsline.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <img id="giftest" src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves"  width="250" />
+            <img id="card" src="Assets\motiontest-0-Enhanced-Animated.gif" />
+            <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+        </a-assets>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex: 0" geometry="primitive:plane;width:15;height:15;" material="shader:gif;src:url(Assets\motiontest-0-Enhanced-Animated.gif);"></a-entity>
+      <!-- <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane src="#giftest" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      </a-entity> -->
+    </a-scene>
+  </body>
 </html>
