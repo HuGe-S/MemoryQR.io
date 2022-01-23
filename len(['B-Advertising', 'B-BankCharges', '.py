@@ -6,10 +6,10 @@ for i in range(len(listb)):
     
 
 a = dict(zip(lista,listb))
-# maximum = max(a, key=a.get) 
-# print(maximum, a[maximum])
-for i in a:
-    if('PER' in i):
-        print(i,a[i])
+maximum = max(a, key=a.get) 
+print(maximum, a[maximum])
+# for i in a:
+#     if('PER' in i):
+#         print(i,a[i])
         
 
